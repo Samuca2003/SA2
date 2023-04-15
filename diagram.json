@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Samuel Borges",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -66.01, "left": 5.37, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -44.8,
+      "left": 201.13,
+      "attrs": { "color": "red", "flip": "" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -28.5, "left": -197.4, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -41.61,
+      "left": 257.13,
+      "attrs": { "color": "blue" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:D19", "led1:A", "green", [ "h120.2", "v-22.66" ] ],
+    [ "esp:GND.1", "led1:C", "black", [ "h80.2", "v-2.13", "h16.67", "v0" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v62.47", "h1.23", "v0", "h0", "v0", "h334.67", "v10.67" ] ],
+    [
+      "dht1:SDA",
+      "esp:D12",
+      "green",
+      [
+        "v35.8",
+        "h0.4",
+        "v-0.67",
+        "h0.66",
+        "v0.67",
+        "h-1.33",
+        "v-1.33",
+        "h24",
+        "v-40.67",
+        "h158.84"
+      ]
+    ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v27.71", "h0.54", "v-13.95", "h140.19" ] ],
+    [ "led2:A", "esp:D18", "green", [ "v22.45", "h2.54" ] ],
+    [ "led2:C", "esp:GND.1", "black", [ "v83.11", "h0.54" ] ]
+  ],
+  "dependencies": {}
+}
